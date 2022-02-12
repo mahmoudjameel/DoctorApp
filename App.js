@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/**
+ * 
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import React, {Component} from 'react';
+import AppSwitchNavigator from './src/navigations/AppMainNavigator';
+import { Provider } from 'react-redux';
+import 'react-native-gesture-handler';
+
+import store from './src/store/configureStore';
+
+
+
+export default class App extends Component{
+  render() {
+    return (
+      <Provider store={store}>
+      <AppSwitchNavigator></AppSwitchNavigator>
+      </Provider>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
